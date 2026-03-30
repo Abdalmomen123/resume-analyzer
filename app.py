@@ -26,3 +26,7 @@ if cv_file and job_desc:
     
     st.subheader("Missing Skills")
     st.write(missing_skills)
+
+    st.subheader("Match Score")
+    st.progress(int(match_score / 100))
+    st.write(f"{match_score}% match")
