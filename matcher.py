@@ -1,7 +1,12 @@
+import streamlit as st
+
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
-model = SentenceTransformer('all-MiniLM-L6-v2')
+@st.cache_resource
+def load_model():
+    return SentenceTransformer('all-MiniLM-L6-v2')
+model = load_model()
 
 def calculate_similarity(cv_text, job_desc):
     cv_embedding = model.encode([cv_text])
